@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسيير الموارد البشرية للمؤسسات العمومية الجزائرية</title>
+  <style>
+    /* Reset & Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Arial', sans-serif; background: #d9f2ea; color: #333; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    .container { max-width: 1200px; margin: auto; padding: 1rem; }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: url('background.jpg') center/cover no-repeat #093f3f;
+      padding: 2rem 1rem;
+      color: #fff;
+    }
+    .logo {
+      width: 110px;
+      max-width: 100%;
+      object-fit: contain;
+      animation: rotateLogo 30s ease-in-out infinite;
+    }
+    @keyframes rotateLogo {
+      0%   { transform: rotate(0deg) scale(1); opacity: 1; }
+  10%  { transform: rotate(360deg) scale(1.1);}
+  15%  { transform: rotate(0deg) scale(1); }
+   17%  { transform: translateX(-5px); }
+  19%  { transform: translateX(5px); }
+  21%  { transform: translateX(-4px); }
+  23%  { transform: translateX(4px); }
+  25%  { transform: translateX(-3px); }
+  27%  { transform: translateX(3px); }
+  29%  { transform: translateX(-2px); }
+  31%  { transform: translateX(2px); }
+  33%  { transform: translateX(-10px); }
+
+  100% { transform: translateX(-10px); }
+}
+
+    .title-section {
+      text-align: right;
+      margin-right: 1.2rem;
+    }
+    .title-section h1 {
+      font-size: 2rem;
+      margin-bottom: .5rem;
+    }
+    .title-section .subtitle {
+      font-size: 1rem;
+      font-weight: 300;
+    }
+
+    /* Features */
+    .features { margin: 2rem 0; }
+    .features h2 {
+      font-size: 1.5rem;
+      color: #093f3f;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .features ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 0;
+  list-style: none;
+  margin: 0 auto;
+  text-align: right;
+}
+
+.features li {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  text-align: right;
+  min-height: 160px; /* يجعل كل الخانات بنفس الارتفاع */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 15px;
+  transition: transform 0.3s ease;
+}
+
+.features li:hover {
+  transform: translateY(-5px);
+}
+
+.icon-wrapper {
+  background-color: #10A294;
+  padding: 10px;
+  border-radius: 20%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+}
+
+.icon-wrapper img {
+  width: 24px;
+  height: 24px;
+  filter: invert(100%); /* يجعل الأيقونة بيضاء داخل الخلفية الداكنة */
+}
+
+.features p {
+  margin: 0;
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.6;
+}
+
+    /* Slider */
+    .slider-section { margin: 2rem 0; text-align: center; }
+    .slider-section h2 {
+      font-size: 1.5rem;
+      color: #093f3f;
+      margin-bottom: 1rem;
+    }
+    .slideshow {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+    }
+    .slideshow img {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%) scale(.95);
+      width: 90%;
+      max-width: 600px;
+      opacity: 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: opacity 1s, transform 1s;
+    }
+    .slideshow img.active {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+
+    /* Form */
+    .form-section {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .form-section p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #093f3f;
+      line-height: 1.5;
+    }
+    .form-section input,
+    .form-section button {
+      width: 100%;
+      max-width: 400px;
+      margin: .75rem auto;
+      padding: .75rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      display: block;
+    }
+    .form-section input {
+      border: 1px solid #ccc;
+    }
+    .form-section button {
+      background: #117e73;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .form-section button:hover {
+      background: #10A294;
+    }
+    #success-message {
+      margin-top: 1rem;
+      display: none;
+    }
+
+    /* Footer */
+    footer {
+      background: #093f3f;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+    footer a { color: #d8f7f4; }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .title-section h1 { font-size: 1.5rem; }
+      .title-section .subtitle { font-size: .9rem; }
+      .features h2,
+      .slider-section h2 { font-size: 1.2rem; }
+      .slideshow { height: 200px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <img src="logo_simple1.png" class="logo" alt="شعار البرنامج">
+
+
+      <div class="title-section">
+        <h1>برنامج تسيير الموارد البشرية GRH simple</h1>
+        <p class="subtitle">برنامج جزائري لتسهيل ومتابعة شاملة لإدارة الموظفين، الإجازات و العطل،الترقيات،الدرجات،الغيابات و الخصومات،الربط بجهاز الحضور،مختلف التقارير و الوثائق، والمزيد...</p>
+      </div>
+    </header>
+
+    <section class="features">
+      <h2>مزايا البرنامج</h2>
+      <ul>
+        <li><div class="icon-wrapper"><img src="icones index/document.svg" alt="icon"></div><p> سهل التثبيت و الاستخدام، بواجهة عربية بالكامل</p></li>
+            <li><div class="icon-wrapper"><img src="icones index/reseau.svg" alt="icon"></div><p> إمكانية إنشاء حسابات مستخدمين بصلاحيات مختلفة مع إمكانية التوزيع على الشبكة</p></li>
+            <li><div class="icon-wrapper"><img src="icones index/dossier.svg" alt="icon"></div><p> تحكم كامل في ملفات الموظفين وتتبع السيرة المهنية لهم</p></li>
+            <li><div class="icon-wrapper"><img src="icones index/document2.svg" alt="icon"></div><p> فعالية عالية بتصدير عشرات التقارير و الوثائق :شهادة العمل،مقررات وجداول الترقية الدرجية،بيان الاجازة و العطلة المرضية،تقارير الغياب و التأخر،قوائم حسب الرتبة أو السلك،وغيرها</p></li>
+            <li><div class="icon-wrapper"><img src="icones index/archive.svg" alt="icon"></div><p> امكانية الاحتفاظ بأرشيف السنوات الماضية </p></li>
+            <li><div class="icon-wrapper"><img src="icones index/tahmil.svg" alt="icon"></div><p> نسخة تجريبية مجانية قابلة للتحميل</p></li>
+            <li><div class="icon-wrapper"><img src="icones index/law.svg" alt="icon"></div><p> تطوير محلي يناسب قوانين الوظيف العمومي الجزائري</p></li>
+            <li><div class="icon-wrapper"><img src="icones index/setup.svg" alt="icon"></div><p> تحكم كامل في الاعدادات:اضافة الرتب و الاسلاك،اضافة المصالح و الفروع،اضافة توقيت الموظفين،....</p> </li>
+           
+      </ul>
+    </section>
+
+    <section class="slider-section">
+      <h2>صور من واجهة البرنامج</h2>
+      <div class="slideshow">
+        <img class="active" src="screenshot1.png" alt="واجهة 1">
+        <img class="slide" src="screenshot2.png" alt="واجهة 2" />
+  <img class="slide" src="screenshot3.png" alt="واجهة 3">
+  <img class="slide" src="screenshot4.png" alt="واجهة 4" />
+  <img class="slide" src="screenshot5.png" alt="واجهة 5" />
+  <img class="slide" src="screenshot6.png" alt="واجهة 6" />
+  <img class="slide" src="screenshot7.png" alt="واجهة 7" />
+  <img class="slide" src="screenshot8.png" alt="واجهة 8" />
+  <img class="slide" src="screenshot9.png" alt="واجهة 9" />
+  <img class="slide" src="screenshot10.png" alt="واجهة 10" />
+  <img class="slide" src="screenshot11.png" alt="واجهة 11" />
+  <img class="slide" src="screenshot12.png" alt="واجهة 12" />
+      </div>
+    </section>
+
+    <section class="form-section">
+      <p>هذا البرنامج موجه خصيصًا لموظفي القطاع العمومي الجزائري. يُرجى إدخال معلوماتك المهنية بدقة:(الرتبة، المؤسسة)     
+  للمساهمة في تحسين النسخ القادمة وتكييفها حسب احتياجات مختلف الإدارات</p>
+       <form class="form" id="download-form"
+    action='https://docs.google.com/forms/d/e/1FAIpQLSdSw3-abyLRv4qY8ZTLgzRmy3t9Z79hhOiFBvekaE0eX3n8_g/formResponse'
+    method='POST' target="hidden_iframe"
+      onsubmit="submitted = true;">
+  <input type="text" name="entry.355902185" placeholder="اسم المؤسسة" required>
+  <input type="text" name="entry.385342340" placeholder="الرتبة" not required>
+  <input type="email" name="entry.790212775" placeholder="البريد الإلكتروني" required>
+
+      <button type="submit">تحميل البرنامج</button>
+    </form>
+
+      <div id="success-message">
+        <p>✅ شكراً! يمكنك تحميل البرنامج الآن:</p>
+        <a href="https://your-download-link.com" target="_blank">
+          <button>تحميل النسخة التجريبية</button>
+        </a>
+      </div>
+      <iframe name="hidden_iframe" style="display:none;" onload="if(submitted) showSuccess();"></iframe>
+    </section>
+  </div>
+
+  <footer>
+    تم تطوير البرنامج من طرف المهندسة ق.مريم: مطورة برمجيات و حلول رقمية مساهمة في التحول الرقمي للبلاد انطلاقا من الميدان لخدمة الإدارة الجزائرية <br>
+    📩 للتواصل: <a href="mailto:grh@gmail.com">grhsimple@gmail.com</a>
+  </footer>
+
+  <script>
+    let submitted = false;
+    function showSuccess() {
+      document.getElementById('download-form').style.display = 'none';
+      document.getElementById('success-message').style.display = 'block';
+    }
+
+    const slides = document.querySelectorAll('.slideshow img');
+    let currentSlide = 0;
+    setInterval(() => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }, 6000);
+  </script>
+</body>
+</html>
